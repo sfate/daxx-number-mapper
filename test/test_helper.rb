@@ -1,4 +1,4 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "number-mapper"
+require "number_mapper"
 
 require "minitest/autorun"

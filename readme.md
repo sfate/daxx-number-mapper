@@ -1,5 +1,5 @@
 ## Number-mapper
-![Build Status](https://travis-ci.org/sfate/daxx-number-mapper.svg?branch=master)
+<a href ='https://travis-ci.org/sfate/daxx-number-mapper'><img src='https://travis-ci.org/sfate/daxx-number-mapper.svg?branch=master' alt='' /></a>
 
 Map numbers to memorable words combination from provided dictionary
 
