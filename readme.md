@@ -1,4 +1,6 @@
 ## Number-mapper
+![Build Status](https://travis-ci.org/sfate/daxx-number-mapper.svg?branch=master)
+
 Map numbers to memorable words combination from provided dictionary
 
 ## Run
@@ -23,6 +25,6 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Code of Conduct
 
-Everyone interacting in the Number::Mapper project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/sfate/number-mapper/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Number::Mapper project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/sfate/daxx-number-mapper/blob/master/CODE_OF_CONDUCT.md).
 
 ## Version: 0.0.1
