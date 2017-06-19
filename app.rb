@@ -1,7 +1,7 @@
-module PhoneMapper
+module NumberMapper
 end
 
-class PhoneMapper::Node < Array
+class NumberMapper::Node < Array
   attr_reader :words
 
   def initialize
@@ -10,7 +10,7 @@ class PhoneMapper::Node < Array
   end
 end
 
-class PhoneMapper::Dictionary
+class NumberMapper::Dictionary
   MAPPINGS = {
     'A' => 2, 'B' => 2, 'C' => 2,
     'D' => 3, 'E' => 3, 'F' => 3,
@@ -23,7 +23,7 @@ class PhoneMapper::Dictionary
   }.freeze
 
   def initialize
-    @root = PhoneMapper::Node.new
+    @root = NumberMapper::Node.new
   end
 
   def call(array)
@@ -39,15 +39,15 @@ class PhoneMapper::Dictionary
       node.words << word
       node
     else
-      add(PhoneMapper::Node.new, word)
+      add(NumberMapper::Node.new, word)
     end
   end
 
 end
 
-class PhoneMapper::Processor
+class NumberMapper::Processor
   def initialize
-    @dictionary = PhoneMapper::Dictionary
+    @dictionary = NumberMapper::Dictionary
   end
 
   def call(phone_number:)
@@ -58,4 +58,4 @@ end
 
 # TODO: Alexey Bobyrev 20 June 2017
 # Place initial call to bin exectutable from engine in future
-PhoneMapper::Processor.new.call(phone_number: 6686787825)
+NumberMapper::Processor.new.call(phone_number: 6686787825)
