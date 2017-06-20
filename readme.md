@@ -10,7 +10,7 @@ Map numbers to memorable words combination from provided dictionary
 docker build -t sfate/number-mapper:latest .
 
 # run
-docker run --rm -it sfate/number-mapper:latest bin/number-mapper 1234567890
+docker run --rm -it sfate/number-mapper:latest bin/number-mapper -n 1234567890
 
 # run tests
 docker run --rm -it sfate/number-mapper:latest rake test

@@ -23,10 +23,22 @@ class NumberMapper::Dictionary
     end
   end
 
-  def find_matches(array)
-    # TODO: Alexey Bobyrev 20 June 2017
-    # Add search functionality through dictionary nodes
-    ['stub']
+  def find_matches(number)
+    result = []
+
+    nodes_find(@root, number) do |words, rest_number|
+      if rest_number.empty?
+        result.concat(words)
+      else
+        find_matches(rest_number).each do |part|
+          words.each do |word|
+            result << [word, part]
+          end
+        end
+      end
+    end
+
+    result
   end
 
   private
@@ -42,5 +54,16 @@ class NumberMapper::Dictionary
     end
   end
 
-end
+  def nodes_find(node, number, &block)
+    if !node.words.empty?
+      block.call(node.words, number)
+    end
 
+    if number.empty? || node[number[0]].nil?
+      node
+    else node[number[0]]
+      nodes_find(node[number[0]], number[1..-1], &block)
+    end
+  end
+
+end
