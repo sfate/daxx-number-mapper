@@ -46,11 +46,8 @@ class NumberMapper::Dictionary
   def add(node, word, position)
     if word.length == position
       node.words << word
-      node
     else
-      index = MAPPINGS[word[position]]
-      node[index] ||= NumberMapper::Node.new
-      add(node[index], word, position + 1)
+      add(node[MAPPINGS[word[position]]] ||= NumberMapper::Node.new, word, position + 1)
     end
   end
 
@@ -59,9 +56,9 @@ class NumberMapper::Dictionary
       block.call(node.words, number)
     end
 
-    if number.empty? || node[number[0]].nil?
+    if number.empty?
       node
-    else node[number[0]]
+    elsif node[number[0]]
       nodes_find(node[number[0]], number[1..-1], &block)
     end
   end
