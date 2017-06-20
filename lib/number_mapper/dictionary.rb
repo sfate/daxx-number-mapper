@@ -15,9 +15,15 @@ class NumberMapper::Dictionary
 
   def initialize(dict_path: DEFAULT_DICT_PATH, min_length: MIN_LENGTH)
     @root = NumberMapper::Node.new
+
+    File.readlines(dict_path).each do |word|
+      word.chomp!
+      next if word.empty? || word.length <= min_length
+      add(@root, word, 0)
+    end
   end
 
-  def call(array)
+  def find_matches(array)
     # TODO: Alexey Bobyrev 20 June 2017
     # Add search functionality through dictionary nodes
     ['stub']
@@ -25,12 +31,14 @@ class NumberMapper::Dictionary
 
   private
 
-  def add(node, word)
+  def add(node, word, position)
     if word.length == position
       node.words << word
       node
     else
-      add(NumberMapper::Node.new, word)
+      index = MAPPINGS[word[position]]
+      node[index] ||= NumberMapper::Node.new
+      add(node[index], word, position + 1)
     end
   end
 
