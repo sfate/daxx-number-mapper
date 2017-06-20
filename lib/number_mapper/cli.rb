@@ -34,6 +34,10 @@ class NumberMapper::CLI
       exit(1)
     end
 
-    NumberMapper::Processor.new.call(options)
+    phone_number = options.delete(:phone_number)
+
+    NumberMapper::Processor
+      .new(options)
+      .call(phone_number: phone_number)
   end
 end

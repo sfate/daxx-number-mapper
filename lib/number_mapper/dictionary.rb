@@ -1,4 +1,7 @@
 class NumberMapper::Dictionary
+  MIN_LENGTH = 3
+  DEFAULT_DICT_PATH = 'vendor/dict.txt'.freeze
+
   MAPPINGS = {
     'A' => 2, 'B' => 2, 'C' => 2,
     'D' => 3, 'E' => 3, 'F' => 3,
@@ -10,7 +13,7 @@ class NumberMapper::Dictionary
     'W' => 9, 'X' => 9, 'Y' => 9, 'Z' => 9,
   }.freeze
 
-  def initialize
+  def initialize(dict_path: DEFAULT_DICT_PATH, min_length: MIN_LENGTH)
     @root = NumberMapper::Node.new
   end
 
