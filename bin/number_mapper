@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "number_mapper/cli"
+
+NumberMapper::CLI.run(ARGV)
